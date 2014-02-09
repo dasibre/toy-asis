@@ -1,4 +1,8 @@
 ToyAsis::Application.routes.draw do
+  get "author/index"
+  get "welcome/index"
+  get "status", to: "welcome#status"
+  post "check_status", to: "welcome#check_status"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

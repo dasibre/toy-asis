@@ -44,9 +44,12 @@ end
 
 gem 'mongoid', '~> 4.0.0.beta1', github: 'mongoid/mongoid'
 gem 'bson_ext'
-gem 'haml'
+# gem 'haml'
+gem 'haml-rails'
 
 group :development, :test do
   gem 'rspec-rails'
   gem 'rake'
+  gem "capybara"
+  gem 'guard-rspec', require: false
 end

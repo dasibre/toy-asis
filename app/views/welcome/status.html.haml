@@ -1,0 +1,8 @@
+%h2 Manuscript Status
+= form_tag(check_status_path) do
+	= label_tag(:code, "Status Code")
+	= text_field_tag(:code) 
+	= label_tag(:author, "Author")
+	= text_field_tag(:author)
+	%br
+	= submit_tag("Check Status")
