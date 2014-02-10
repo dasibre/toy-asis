@@ -16,7 +16,6 @@ describe WelcomeController do
   	end
   end
 
-
   describe "get#check_status when author is found" do
     before :each do
        @manuscript = double("Manuscript")

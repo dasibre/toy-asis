@@ -1,4 +1,6 @@
 class WelcomeController < ApplicationController
+  #before_filter :valid_author_name_length?, only: [:check_status]
+
   def index
   end
 
@@ -21,4 +23,13 @@ class WelcomeController < ApplicationController
   def find_manuscript(code)
   	@manuscript = Manuscript.find_by_code(code)
   end
+
+  #reject exact match on 1 char of author name
+  # def valid_author_name_length?
+  #   author_name = params[:author]
+  #   if author_name.length < 2
+  #     flash[:notice] = "Please enter 2 or more letters of Authors last name"
+  #     render :status
+  #   end
+  # end
 end
