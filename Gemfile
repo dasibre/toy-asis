@@ -52,8 +52,4 @@ group :development, :test do
   gem 'rake'
   gem 'capybara'
   gem 'guard-rspec', require: false
-  gem 'pry'
-  gem 'better_errors'
-  gem 'binding_of_caller'
-  gem 'simplecov'
 end

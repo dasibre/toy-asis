@@ -18,7 +18,7 @@ class Manuscript
   end
 
   def author_match?(author_params)
-  	lastname = author_params.downcase
+  	lastname = author_params.strip.downcase
   	manuscript_authors = self.get_authors
   	manuscript_authors.select {|author| author_match_to_params(author.last_name.downcase,lastname)}.any?
   end

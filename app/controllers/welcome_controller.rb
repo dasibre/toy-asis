@@ -10,10 +10,10 @@ class WelcomeController < ApplicationController
   def check_status
     @author = params[:author]
     @manuscript = find_manuscript(params[:code])
-    if @manuscript.author_match?(@author)
+    if @manuscript && @manuscript.author_match?(@author)
       render :results
     else
-      flash[:notice] = "Author Not found"
+      flash[:notice] = "No match"
       render :status
     end
   end
