@@ -16,7 +16,8 @@ describe WelcomeController do
   	end
   end
 
-  describe "get#check_status when author is found" do
+  describe "get#check_status" do
+    describe "when author is found"
     before :each do
        @manuscript = double("Manuscript")
        Manuscript.should_receive(:find_by_code).with("AA1000").and_return(@manuscript)

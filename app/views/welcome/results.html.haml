@@ -1,3 +1,5 @@
+%h1 Manuscript Status
 = @manuscript.title
 - @manuscript.authors.each do |author|
-	= author.publish_name
+	%ul
+		%li= author.publish_name
