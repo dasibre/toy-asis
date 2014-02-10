@@ -1,8 +1,10 @@
+- if flash
+	= flash[:notice]
 %h2 Manuscript Status
-= form_tag(check_status_path) do
+= form_tag(check_status_path, method: "get") do
 	= label_tag(:code, "Status Code")
-	= text_field_tag(:code) 
+	= text_field_tag "code", params[:code]
 	= label_tag(:author, "Author")
-	= text_field_tag(:author)
+	= text_field_tag "author", params[:author]
 	%br
-	= submit_tag("Check Status")
+	= submit_tag "Check Status", name: nil

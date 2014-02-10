@@ -6,18 +6,18 @@ class WelcomeController < ApplicationController
   end
 
   def check_status
-  	@manuscript = find_manuscript(params[:code])
-    if @manuscript
-  	   @authors = @manuscript.authors
-     else
-      flash[:notice] = "Manuscript not found"
+    @author = params[:author]
+    @manuscript = find_manuscript(params[:code])
+    if @manuscript.author_match?(@author)
+      render :results
+    else
+      flash[:notice] = "Author Not found"
       render :status
     end
   end
 
-
   private
-
+  
   def find_manuscript(code)
   	@manuscript = Manuscript.find_by_code(code)
   end

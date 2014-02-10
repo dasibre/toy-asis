@@ -1,13 +1,38 @@
 require 'spec_helper'
+require 'pry'
 
 describe Manuscript do
-  describe 'persistence' do
-    let(:valid_attributes) do
+	let(:valid_attributes) do
       Hash[code: 'AA1001', title: 'some title', status: 'NEW', :status_date => Date.today]
     end
 
-    it 'creates with valid attributes' do
-      Manuscript.create!(valid_attributes)
+	describe 'persistence' do
+	  it 'creates with valid attributes' do
+	    Manuscript.create!(valid_attributes)
+	  end
+	end
+
+    describe 'manuscript status query' do
+	  before :each do
+	   	@manuscript = Manuscript.create!(valid_attributes)
+		@manuscript.authors << Author.new(publish_name: 'Smith,Jane')
+		@exitent_author_params = "Smith,Jane"
+		@nonexitent_author_params = "Witherspoon, John"
+	  end
+      describe '#get authors' do
+        it "should get all manuscript authors" do
+  	      expect(@manuscript.get_authors).to eq(@manuscript.authors)
+        end
+      end
+
+      describe "#author_match?" do
+        it "should be true with valid author" do
+  	      expect(@manuscript.author_match?(@exitent_author_params)).to eq(true)
+        end
+
+         it "should be false with invalid author" do
+  	      expect(@manuscript.author_match?(@nonexitent_author_params)).to eq(false)
+        end
+      end
     end
-  end
 end
