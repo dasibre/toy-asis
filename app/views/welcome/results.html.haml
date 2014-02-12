@@ -1,6 +1,7 @@
 %h1 Manuscript Status
 
 %h3= "Title: #{@manuscript.title}"
+%h3= "Status: #{@manuscript.status}"
 %h3= "Authors"
 - @manuscript.authors.each do |author|
 	%ul
