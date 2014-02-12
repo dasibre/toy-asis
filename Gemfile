@@ -52,4 +52,5 @@ group :development, :test do
   gem 'rake'
   gem 'capybara'
   gem 'guard-rspec', require: false
+  gem 'selenium-webdriver'
 end
