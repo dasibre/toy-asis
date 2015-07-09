@@ -14,9 +14,9 @@ describe Manuscript do
     describe 'manuscript status query' do
   	  before :each do
   	   	@manuscript = Manuscript.create!(valid_attributes)
-  		  @manuscript.authors << Author.new(publish_name: 'Li,John')
-  		  @exitent_author_params = "li"
-  		  @nonexitent_author_params = "Witherspoon"
+  		@manuscript.authors << Author.new(publish_name: 'Li,John')
+  		@exitent_author_params = "li"
+  		@nonexitent_author_params = "Witherspoon"
   	  end
       describe '#get authors' do
         it "should get all manuscript authors" do
